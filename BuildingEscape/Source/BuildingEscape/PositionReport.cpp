@@ -20,7 +20,9 @@ UPositionReport::UPositionReport()
 void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("Position report reporting for duty!\n"));
+	FString ObjectName = GetOwner()->GetName();
+	FString ObjectPos = GetOwner()->GetTransform().GetLocation().ToString();
+	UE_LOG(LogTemp, Warning, TEXT("Position report reporting for duty on %s, %s"), *ObjectName, *ObjectPos);
 	// ...
 	
 }
